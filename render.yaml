@@ -1,0 +1,25 @@
+# Render blueprint for the VentureIQ API.
+#   Render dashboard -> New -> Blueprint -> pick this repo.
+# The frontend is deployed separately on Vercel (see frontend/vercel.json).
+services:
+  - type: web
+    name: ventureiq-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    # The database and models are not in git, so they are built here. This takes
+    # a couple of minutes: it loads the seed datasets, trains both models and
+    # scores every startup.
+    buildCommand: pip install -r requirements.txt && python scripts/bootstrap.py
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.4"
+      # Set in the Render dashboard; see backend/.env.example.
+      - key: VIQ_CORS_ORIGINS   # e.g. ["https://venture-iq.vercel.app"]
+        sync: false
+      - key: VIQ_GITHUB_TOKEN
+        sync: false
+      - key: VIQ_DATA_GOV_IN_KEY
+        sync: false

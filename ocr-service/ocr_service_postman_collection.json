@@ -1,0 +1,192 @@
+{
+    "info": {
+        "_postman_id": "ocr-service-gemini-2024",
+        "name": "OCR Service - Gemini API",
+        "description": "Complete API collection for OCR Bill Parser Service using Google Gemini",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:5000/health",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "health"
+                    ]
+                },
+                "description": "Check if the OCR service is running and healthy"
+            },
+            "response": []
+        },
+        {
+            "name": "Parse Bill from URL",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"file_url\": \"https://example.com/path/to/bill.jpg\",\n    \"use_easyocr\": false\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/parse-bill",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "api",
+                        "parse-bill"
+                    ]
+                },
+                "description": "Parse a bill from a publicly accessible URL. Supports images (PNG, JPG, JPEG, TIFF, BMP) and PDF files."
+            },
+            "response": []
+        },
+        {
+            "name": "Parse Bill from Base64",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"image_base64\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==\",\n    \"use_easyocr\": false\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/parse-bill-base64",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "api",
+                        "parse-bill-base64"
+                    ]
+                },
+                "description": "Parse a bill from a base64 encoded image. Replace the image_base64 value with your actual base64 encoded image data."
+            },
+            "response": []
+        },
+        {
+            "name": "Parse Bill - Electricity Sample",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"file_url\": \"https://your-storage-url.com/sample-electricity-bill.jpg\",\n    \"use_easyocr\": false\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/parse-bill",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "api",
+                        "parse-bill"
+                    ]
+                },
+                "description": "Example request for parsing an electricity bill. Update the file_url with your actual bill image URL."
+            },
+            "response": []
+        },
+        {
+            "name": "Parse Bill - Water Sample",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"file_url\": \"https://your-storage-url.com/sample-water-bill.pdf\",\n    \"use_easyocr\": false\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/parse-bill",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "api",
+                        "parse-bill"
+                    ]
+                },
+                "description": "Example request for parsing a water bill PDF. Update the file_url with your actual bill PDF URL."
+            },
+            "response": []
+        },
+        {
+            "name": "Parse Bill - Gas Sample",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"file_url\": \"https://your-storage-url.com/sample-gas-bill.png\",\n    \"use_easyocr\": false\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/parse-bill",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "api",
+                        "parse-bill"
+                    ]
+                },
+                "description": "Example request for parsing a gas bill. Update the file_url with your actual bill image URL."
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:5000",
+            "type": "string"
+        }
+    ]
+}

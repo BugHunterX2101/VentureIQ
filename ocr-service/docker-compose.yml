@@ -1,0 +1,16 @@
+
+
+services:
+  ocr-service:
+    build: .
+    container_name: ocr-service
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=true
+    restart: unless-stopped

@@ -1,0 +1,26 @@
+# Python
+backend/.venv/
+__pycache__/
+*.py[cod]
+
+# Local database & trained model artifacts (regenerate with scripts/bootstrap.py)
+backend/ventureiq.db
+backend/registry.db*
+backend/cache.db*
+backend/artifacts/*.joblib
+backend/artifacts/*.json
+# Signing key and anything people upload (ID documents, certificates).
+backend/artifacts/jwt_secret.txt
+backend/artifacts/uploads/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Env / editor / OS
+.env
+.env.local
+.DS_Store
+.vscode/
+.idea/
+.claude/

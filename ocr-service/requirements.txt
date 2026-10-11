@@ -1,0 +1,34 @@
+# Flask Web Framework
+Flask==3.0.3
+Flask-CORS==5.0.0
+
+# OCR Libraries
+pytesseract==0.3.13
+Pillow==11.0.0
+
+# Text Processing & Fuzzy Matching
+rapidfuzz==3.10.1
+
+# HTTP Requests
+requests==2.32.3
+
+# Date Parsing
+python-dateutil==2.9.0
+dateparser==1.2.0
+
+# Environment Variables
+python-dotenv==1.0.1
+
+# PDF Processing
+PyPDF2==3.0.1
+pdf2image==1.17.0
+
+# Image Processing
+opencv-python==4.10.0.84
+numpy==1.26.4
+
+# Validation
+pydantic==2.10.3
+
+# Gemini
+google-generativeai==0.3.2
